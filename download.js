@@ -4,10 +4,11 @@ const fileName = urlParams.get('file');
 const securityKey = urlParams.get('key');
 
 // Display the file name
+const fileNameElement = document.getElementById('fileName');
 if (fileName) {
-    document.getElementById('fileName').textContent = `File: ${fileName}`;
+    fileNameElement.textContent = `File: ${fileName}`;
 } else {
-    document.getElementById('fileName').textContent = 'No file specified.';
+    fileNameElement.textContent = 'No file specified.';
 }
 
 const downloadButton = document.getElementById('downloadButton');
@@ -18,14 +19,17 @@ downloadButton.addEventListener('click', () => {
 
     if (enteredKey === securityKey) {
         // Security key matches, proceed with download
-        const fileURL = `https://github.com/manohardorreti/manohardorreti.github.io/raw/uploads/${encodeURIComponent(fileName)}`;
+        const fileURL = `https://raw.githubusercontent.com/manohardorreti/manohardorreti.github.io/main/${encodeURIComponent(fileName)}`;
+        
+        // Create a temporary anchor element for downloading the file
         const a = document.createElement('a');
         a.href = fileURL;
-        a.download = fileName; // Suggests file download
+        a.download = fileName; // Suggests a filename for download
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
 
+        // Provide user feedback
         downloadMessage.textContent = 'File download initiated!';
         downloadMessage.style.color = 'green';
     } else {
