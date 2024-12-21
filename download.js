@@ -1,10 +1,14 @@
-// Get query parameters from URL
+// Get query parameters from the URL
 const urlParams = new URLSearchParams(window.location.search);
 const fileName = urlParams.get('file');
 const securityKey = urlParams.get('key');
 
 // Display the file name
-document.getElementById('fileName').textContent = `File: ${fileName}`;
+if (fileName) {
+    document.getElementById('fileName').textContent = `File: ${fileName}`;
+} else {
+    document.getElementById('fileName').textContent = 'No file specified.';
+}
 
 const downloadButton = document.getElementById('downloadButton');
 const downloadMessage = document.getElementById('downloadMessage');
@@ -14,10 +18,10 @@ downloadButton.addEventListener('click', () => {
 
     if (enteredKey === securityKey) {
         // Security key matches, proceed with download
-        const fileURL = `http://192.168.0.3:5500/download?file=${encodeURIComponent(fileName)}&key=${encodeURIComponent(enteredKey)}`;
+        const fileURL = `https://github.com/manohardorreti/manohardorreti.github.io/raw/uploads/${encodeURIComponent(fileName)}`;
         const a = document.createElement('a');
         a.href = fileURL;
-        a.download = fileName; // This may not be necessary since the server handles the download
+        a.download = fileName; // Suggests file download
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -30,4 +34,3 @@ downloadButton.addEventListener('click', () => {
         downloadMessage.style.color = 'red';
     }
 });
-
