@@ -10,7 +10,7 @@ const downloadButton = document.getElementById('downloadButton');
 const downloadMessage = document.getElementById('downloadMessage');
 
 // Hosting files publicly on GitHub or any other public server is mandatory
-const filesBaseURL = "https://github.com/manohardorreti/manohardorreti.github-io/";
+const filesBaseURL = "https://github.com/manohardorreti/manohardorreti.github-io/tree/main/uploads";
 
 downloadButton.addEventListener('click', () => {
     const enteredKey = document.getElementById('securityKeyInput').value;
