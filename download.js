@@ -9,15 +9,18 @@ document.getElementById('fileName').textContent = `File: ${fileName}`;
 const downloadButton = document.getElementById('downloadButton');
 const downloadMessage = document.getElementById('downloadMessage');
 
+// Hosting files publicly on GitHub or any other public server is mandatory
+const filesBaseURL = "https://github.com/manohardorreti/manohardorreti.github-io/";
+
 downloadButton.addEventListener('click', () => {
     const enteredKey = document.getElementById('securityKeyInput').value;
 
     if (enteredKey === securityKey) {
         // Security key matches, proceed with download
-        const fileURL = `http://192.168.0.3:5500/download?file=${encodeURIComponent(fileName)}&key=${encodeURIComponent(enteredKey)}`;
+        const fileURL = `${filesBaseURL}${encodeURIComponent(fileName)}`;
         const a = document.createElement('a');
         a.href = fileURL;
-        a.download = fileName; // This may not be necessary since the server handles the download
+        a.download = fileName; // This may not be necessary if the server headers are set up correctly
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
@@ -30,4 +33,3 @@ downloadButton.addEventListener('click', () => {
         downloadMessage.style.color = 'red';
     }
 });
-
