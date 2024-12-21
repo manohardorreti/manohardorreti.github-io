@@ -14,7 +14,7 @@ downloadButton.addEventListener('click', () => {
 
     if (enteredKey === securityKey) {
         // Security key matches, proceed with download
-        const fileURL = `http://192.168.0.6:5500/test/download?file=${encodeURIComponent(fileName)}&key=${encodeURIComponent(enteredKey)}`;
+        const fileURL = `http://192.168.0.3:5500/download?file=${encodeURIComponent(fileName)}&key=${encodeURIComponent(enteredKey)}`;
         const a = document.createElement('a');
         a.href = fileURL;
         a.download = fileName; // This may not be necessary since the server handles the download
