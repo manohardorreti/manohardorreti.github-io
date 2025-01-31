@@ -12,4 +12,3 @@ git commit -m "Auto-upload on %date% at %time%"
 git push origin main
 
 ::Exit
-exit
