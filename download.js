@@ -21,8 +21,8 @@ downloadButton.addEventListener('click', () => {
 
     if (enteredKey === securityKey) {
         if (fileName) {
-            // Corrected GitHub raw file URL (Downloading from MAIN branch)
-            const fileURL = `https://raw.githubusercontent.com/manohardorreti/manohardorreti.github-io/main/${encodeURIComponent(fileName)}`;
+            // Security key matches and file name is specified
+            const fileURL = `https://raw.githubusercontent.com/manohardorreti/manohardorreti.github-io/main/uploads/${encodeURIComponent(fileName)}`;
 
             // Create a temporary anchor element for downloading the file
             const a = document.createElement('a');
