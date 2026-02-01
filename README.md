@@ -77,6 +77,3 @@ In the Iris flower classification project, the tuned Random Forest model has bee
 In conclusion, the Iris flower classification project successfully employed Random Forest (tuned) as the final prediction model to classify Iris species. The project's outcomes have practical implications in the field of botany and offer valuable insights into feature importance for species differentiation. Further refinements and enhancements may lead to even more accurate and reliable classification models in the future.
 
 ---
-
-## Reference#
- - [Oasis Infobyte](https://oasisinfobyte.com/)
